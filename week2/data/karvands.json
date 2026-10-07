@@ -1,0 +1,42 @@
+{
+    "bootcamp": {
+        "title": "Karvand Python",
+        "year": 2026
+    },
+    "karvands": [
+        {
+            "id": 1,
+            "full_name": "ali ahmadi",
+            "email": "aliahmadi@gmail.com",
+            "city": "tehran",
+            "education": {
+                "degree": "bachelor",
+                "field": "computer"
+            },
+            "skills": [
+                {
+                    "name": "python",
+                    "level": "advanced",
+                    "score": 89
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "full_name": "sara vakilii",
+            "email": "saravakilii@gmail.com",
+            "city": "hamedan",
+            "education": {
+                "degree": "masters degree",
+                "field": "law"
+            },
+            "skills": [
+                {
+                    "name": "c#",
+                    "level": "bignner",
+                    "score": 90
+                }
+            ]
+        }
+    ]
+}
