@@ -160,13 +160,46 @@ def show_all_karvand():
     except Exception as e:
         print(f"Error: {e}")
 
+def search_karvand_by_id():
+    try:
+        target_id = int(input("Enter ID: "))
+        data = read_karvand_json()
+
+        for karvand in data["karvands"]:
+            if karvand["id"] == target_id:
+                print("-------------------------")
+                print(f"ID: {karvand['id']}")
+                print(f"Name: {karvand['full_name']}")
+                print(f"Email: {karvand['email']}")
+                print(f"City: {karvand['city']}")
+                print(f"Degree: {karvand['education']['degree']}")
+                print(f"Field: {karvand['education']['field']}")
+
+                print("Skills:")
+                for skill in karvand["skills"]:
+                    print(
+                        f"  {skill['name']} - "
+                        f"{skill['level']} - "
+                        f"{skill['score']}"
+                    )
+                return
+
+        print("Karvand with this ID was not found.")
+
+    except ValueError:
+        print("ID must be a number.")
+
+    except Exception as e:
+        print(f"Error: {e}")
+
 
 # اجرای برنامه -----------------------------------------------------------
 while True:
     print("\n--- Karvand Manager ---")
     print("1. Add Karvand")
     print("2. show_all")
-    print("3. Exit")
+    print("3. Search Karvand")
+    print("4. Exit")
 
     choice = input("Enter your choice: ").strip()
 
@@ -177,6 +210,9 @@ while True:
         show_all_karvand()
 
     elif choice == "3":
+        search_karvand_by_id()
+
+    elif choice == "4":
         print("Goodbye!")
         break
 
