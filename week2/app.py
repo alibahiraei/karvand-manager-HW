@@ -192,32 +192,100 @@ def search_karvand_by_id():
     except Exception as e:
         print(f"Error: {e}")
 
+def edit_karvand():
+    try:
+        user_id = int(input("Enter karvand id: "))
+        data=read_karvand_json()
+        for karvand in data["karvands"]:
+            if karvand["id"] == user_id:
+                print("Leave blank if you don't want to change it.")
+    
+                email = input("New email: ").strip()
+                city = input("New city: ").strip()
+                degree = input("New degree: ").strip()
+                field = input("New field: ").strip()
+    
+                if email:
+                    karvand["email"] = email
+    
+                    if city:
+                        karvand["city"] = city
+    
+                    if degree:
+                        karvand["education"]["degree"] = degree
+    
+                    if field:
+                        karvand["education"]["field"] = field
+    
+                    save_karvands(data)
+    
+                    print("Karvand updated successfully.")
+                    return
+    
+            print("Karvand with this ID was not found.")
+    except Exception as e:
+        print(f"Exception occured: {e}. So, a new one is created.")
+
+def delete_karvand():
+
+    try:
+        data = read_karvand_json()
+
+        user_id = int(input("Enter karvand id: "))
+
+        for karvand in data["karvands"]:
+
+            if karvand["id"] == user_id:
+
+                data["karvands"].remove(karvand)
+
+                save_karvands(data)
+
+                print("Karvand deleted successfully.")
+                return
+
+        print("Karvand with this ID was not found.")
+    except Exception as e:
+        print(f"Exception occured: {e}. So, a new one is created.")
+
+
 
 # اجرای برنامه -----------------------------------------------------------
 while True:
-    print("\n--- Karvand Manager ---")
-    print("1. Add Karvand")
-    print("2. show_all")
-    print("3. Search Karvand")
-    print("4. Exit")
+    try:
+        print("\n--- Karvand Manager ---")
+        print("1. Add Karvand")
+        print("2. show_all")
+        print("3. Search Karvand")
+        print("4. Edite karnvand")
+        print("5. Delet karvand")
+        print("6. Exit")
 
-    choice = input("Enter your choice: ").strip()
+        choice = input("Enter your choice: ").strip()
 
-    if choice == "1":
-        add_karvands()
+        if choice == "1":
+            add_karvands()
 
-    elif choice == "2":
-        show_all_karvand()
+        elif choice == "2":
+            show_all_karvand()
 
-    elif choice == "3":
-        search_karvand_by_id()
+        elif choice == "3":
+            search_karvand_by_id()
 
-    elif choice == "4":
-        print("Goodbye!")
-        break
+        elif choice == "4":
+            edit_karvand()
 
-    else:
-        print("Invalid choice!")
+        elif choice=="5":
+            delete_karvand()
+
+        elif choice == "6":
+            print("Goodbye!")
+            break
+
+        else:
+            print("Invalid choice!")
+    except Exception as e:
+        print(f"Exception occured: {e}. So, a new one is created.")
 
 
         
