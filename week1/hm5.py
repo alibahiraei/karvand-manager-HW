@@ -1,12 +1,12 @@
 my_book={}
 while True:
-    menu=input("enter work you\nadd\nsearch\nshow\nexit\n: ")
+    menu=input("enter work you\nadd\nsearch\nshow\nexit\n: ").strip()
     if menu=="add":
         book=input("enter name boook: ")
         ather=input("enter name ather: ")
         my_book[book]=ather
     if menu=="search":
-        my_search=input("enter name book: ")
+        my_search=input("enter name book: ").strip()
         if my_search in my_book:
             print(f"ather is: {my_book[my_search]}")
         else:

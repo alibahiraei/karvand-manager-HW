@@ -3,23 +3,5 @@
         "title": "Karvand Python",
         "year": 2026
     },
-    "karvands": [
-        {
-            "id": 1,
-            "full_name": "ali ahmadi",
-            "email": "alibarman@gmail.com",
-            "city": "tehran",
-            "education": {
-                "degree": "bachelor",
-                "field": "computer"
-            },
-            "skills": [
-                {
-                    "name": "python",
-                    "level": "advanced",
-                    "score": 89
-                }
-            ]
-        }
-    ]
+    "karvands": []
 }

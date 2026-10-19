@@ -81,7 +81,17 @@ def add_karvands():
         field = input("Enter field: ").strip()
         skill_name = input("Enter skill name: ").strip()
         skill_level = input("Enter skill level: ").strip()
-        skill_score = float(input("Enter skill score: "))
+        while True:
+            try:
+                skill_score = int(input("Enter skill score (0-100): "))
+
+                if 0 <= skill_score <= 100:
+                    break
+
+                print("Skill score must be between 0 and 100.")
+
+            except ValueError:
+                print("Skill score must be a number.")
 
         if data["karvands"]:
             new_id = max(
